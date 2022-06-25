@@ -1,5 +1,7 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.GoogleSearchPage;
+import com.cydeo.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -9,9 +11,9 @@ public class Hooks {
 
     //import from io.cucumber.java not from junit
     @Before(order = 0)
-    public void setupScenario() {
-        System.out.println("\n");
-        System.out.println("======Setting up browser using cucumber @Before");
+    public void switchToEnglish() {
+//        GoogleSearchPage googleSearchPage = new GoogleSearchPage();
+//        googleSearchPage.switchGoogleToEnglish.click();
 
     }
 
@@ -24,6 +26,8 @@ public class Hooks {
 
     @After
     public void teardownScenario() {
+
+//        Driver.quitDriver(1.5);
 
         System.out.println("====Closing browser using cucumber @After");
         System.out.println("====Scenario ended/Take screenshot if failed");
