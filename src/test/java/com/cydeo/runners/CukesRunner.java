@@ -12,7 +12,8 @@ import org.junit.runner.RunWith;
         dryRun = false,
         //tags = "@student or @librarian"
         //tags = "@employee and @admin"
-        tags = "@Regression and not @student"
+        //tags = "@Regression"
+        tags = "@Regression"
 )
 public class CukesRunner {
 }
