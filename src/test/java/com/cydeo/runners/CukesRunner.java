@@ -9,11 +9,11 @@ import org.junit.runner.RunWith;
         plugin = "html:target/cucumber-reports.html",
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
-        dryRun = true,
+        dryRun = false,
         //tags = "@student or @librarian"
         //tags = "@employee and @admin"
         //tags = "@Regression"
-        tags = "@wip"
+        tags = "@Jobs"
 )
 public class CukesRunner {
 }

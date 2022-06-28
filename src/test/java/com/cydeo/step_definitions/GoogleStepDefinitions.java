@@ -9,16 +9,25 @@ import org.openqa.selenium.Keys;
 
 public class GoogleStepDefinitions {
 
+//20700
 
     @When("user types {string} and click enter")
-    public void user_types_and_click_enter(String string) {
+    public void user_types_and_click_enter(String searchKeyword) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        googleSearchPage.searchBox.sendKeys(searchKeyword, Keys.ENTER);
     }
     @Then("user sees {string} in the google title")
-    public void user_sees_in_the_google_title(String string) {
+    public void user_sees_in_the_google_title(String searchKeyword) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+//        String expectedTitle = searchKeyword + " - Google Search";
+            String expectedTitle = searchKeyword +" - Google'da Ara";
+        String actualTitle = Driver.getDriver().getTitle();
+
+        Assert.assertTrue(actualTitle.equals(expectedTitle));
+        System.out.println("true");
+
+
     }
 
 
@@ -36,8 +45,8 @@ public class GoogleStepDefinitions {
     @Then("user sees apple in the google title")
     public void user_sees_apple_in_the_google_title() {
         // Write code here that turns the phrase above into concrete actions
-            String expectedTitle = "apple - Google Search";
-//            String expectedTitle = "apple - Google'da Ara";
+//            String expectedTitle = "apple - Google Search";
+            String expectedTitle = "apple - Google'da Ara";
             String actualTitle = Driver.getDriver().getTitle();
 
             Assert.assertTrue(actualTitle.equals(expectedTitle));
@@ -66,6 +75,7 @@ public class GoogleStepDefinitions {
     public void userSwitchesGoogleToEnglishVersion() {
         googleSearchPage.switchGoogleToEnglish.click();
     }
+
 }
 
 //1.43.15
