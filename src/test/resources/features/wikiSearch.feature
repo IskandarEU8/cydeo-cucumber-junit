@@ -1,10 +1,13 @@
-Feature: Wiki search functionality
-  Agile story: As a user, when I am on Wikipedia web-site I should be able
-  to search for a relevant information.
+Feature: Wiki search functionallity and verifications
+  @Test1
+  Scenario: Wikipedia Search Functionality Title Verification
+    Given User is on Wikipedia home page2
+    When User types "Steve Jobs" in the wiki search box2
+    And User clicks wiki search button2
+    Then User sees "Steve Jobs" is in the wiki title2
 
-  #WSF-45234
-  @Jobs
-  Scenario: Search for Steve on Wikipedia
-    Given user is on Wikipedia page
-    And users searches for "Steve Jobs"
-    Then user sees "Steve Jobs" in the title
+  Scenario: Wikipedia Search Functionality Header Verification2
+    Given User is on Wikipedia home page2
+    When User types "Steve Jobs" in the wiki search box2
+    And User clicks wiki search button2
+    Then User sees "Steve Jobs" is in the main headerg

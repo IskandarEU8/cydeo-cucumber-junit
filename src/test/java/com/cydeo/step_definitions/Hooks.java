@@ -20,6 +20,8 @@ public class Hooks {
 
      */
 
+    /*
+
     @Before(value = "@login", order = 1)
     public void setupScenarioForLogins() {
         System.out.println("\n");
@@ -38,7 +40,7 @@ public class Hooks {
 
 
 
-        Driver.quitDriver(1.5);
+//        Driver.quitDriver(1.5);
 
         System.out.println("====Closing browser using cucumber @After");
         System.out.println("====Scenario ended/Take screenshot if failed");
@@ -53,4 +55,6 @@ public class Hooks {
     public void afterStep(){
         System.out.println("\n------------- applying teardown using @AfterStep");
     }
+
+     */
 }
