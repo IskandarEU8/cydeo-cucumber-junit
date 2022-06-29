@@ -31,6 +31,9 @@ public class Wiki_StepDefinitions {
 
     @Then("User sees {string} is in the main headerg")
     public void userSeesIsInTheMainHeaderg(String string) {
-        Assert.assertTrue(wikiSearchPage.photoMainHeader.equals(string));
+
+
+
+        Assert.assertTrue(wikiSearchPage.photoMainHeader.getText().equals(string));
     }
 }

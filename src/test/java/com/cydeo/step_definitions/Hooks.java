@@ -9,6 +9,17 @@ import org.openqa.selenium.WebDriverException;
 
 public class Hooks {
 
+
+    @After
+    public void teardownScenario(Scenario scenario) {
+
+        if (scenario.isFailed()) {
+
+            byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", scenario.getName());
+        }
+
+
     /*
     //import from io.cucumber.java not from junit
     @Before(order = 0)
@@ -29,14 +40,7 @@ public class Hooks {
 
     }
 
-    @After
-    public void teardownScenario(Scenario scenario) {
 
-        if (scenario.isFailed()) {
-
-            byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", scenario.getName());
-        }
 
 
 
@@ -57,4 +61,5 @@ public class Hooks {
     }
 
      */
+    }
 }

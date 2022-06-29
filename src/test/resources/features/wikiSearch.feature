@@ -1,5 +1,6 @@
+@Test1
 Feature: Wiki search functionallity and verifications
-  @Test1
+
   Scenario: Wikipedia Search Functionality Title Verification
     Given User is on Wikipedia home page2
     When User types "Steve Jobs" in the wiki search box2
