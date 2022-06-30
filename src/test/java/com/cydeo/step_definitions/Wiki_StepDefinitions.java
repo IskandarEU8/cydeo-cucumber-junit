@@ -10,27 +10,27 @@ import org.junit.Assert;
 public class Wiki_StepDefinitions {
 
     WikiSearchPage wikiSearchPage = new WikiSearchPage();
-    @Given("User is on Wikipedia home page2")
-    public void user_is_on_wikipedia_home_page2() {
+    @Given("User is on Wikipedia home page")
+    public void user_is_on_wikipedia_home_page() {
         Driver.getDriver().get("https://wikipedia.org");
     }
-    @When("User types {string} in the wiki search box2")
-    public void user_types_in_the_wiki_search_box2(String string) {
+    @When("User types {string} in the wiki search box")
+    public void user_types_in_the_wiki_search_box(String string) {
         wikiSearchPage.searchBox.sendKeys(string);
 
     }
-    @When("User clicks wiki search button2")
-    public void user_clicks_wiki_search_button2() {
+    @When("User clicks wiki search button")
+    public void user_clicks_wiki_search_button() {
         wikiSearchPage.searchButton.click();
     }
-    @Then("User sees {string} is in the wiki title2")
-    public void user_sees_is_in_the_wiki_title2(String string) {
+    @Then("User sees {string} is in the wiki title")
+    public void user_sees_is_in_the_wiki_title(String string) {
         Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
     }
 
 
-    @Then("User sees {string} is in the main headerg")
-    public void userSeesIsInTheMainHeaderg(String string) {
+    @Then("User sees {string} is in the main header")
+    public void userSeesIsInTheMainHeader(String string) {
 
 
 
