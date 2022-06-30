@@ -12,7 +12,7 @@ Feature: Wiki search functionality and verifications
     And User clicks wiki search button
     Then User sees "<expectedTitle>" is in the wiki title
 
-  @wip
+
   Scenario Outline: Wikipedia Search Functionality Header Verification
     Given User is on Wikipedia home page
     When User types "<searchValue>" in the wiki search box
