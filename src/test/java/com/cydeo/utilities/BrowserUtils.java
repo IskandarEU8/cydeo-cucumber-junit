@@ -76,4 +76,8 @@ public class BrowserUtils {
         WebElement english = Driver.getDriver().findElement(By.xpath("//a[.='English']"));
         english.click();
     }
+
+    public static void verifyUrlContains(String expectedTextInURL){
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedTextInURL));
+    }
 }
