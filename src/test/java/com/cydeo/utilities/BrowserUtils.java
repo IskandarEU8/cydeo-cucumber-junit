@@ -72,11 +72,18 @@ public class BrowserUtils {
 
     }
 
+    /**
+     * This method swtiches local Google search page to english version
+     */
     public static void switchGoogleToEnglish() {
         WebElement english = Driver.getDriver().findElement(By.xpath("//a[.='English']"));
         english.click();
     }
 
+    /**
+     * This method verifies if the current URL contains expected value.
+     * @param expectedTextInURL
+     */
     public static void verifyUrlContains(String expectedTextInURL){
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedTextInURL));
     }
