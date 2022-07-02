@@ -15,7 +15,6 @@ public class WebTable_StepDefinitions {
     WebTableLoginPage webTableLoginPage = new WebTableLoginPage();
 
 
-
     @Given("user is on the login page of web table app")
     public void user_is_on_the_login_page_of_web_table_app() {
         String url = ConfigurationReader.getProperty("web.table.url");
@@ -38,6 +37,7 @@ public class WebTable_StepDefinitions {
     public void user_clicks_to_login_button() {
         webTableLoginPage.loginButton.click();
     }
+
     @Then("user should see url contains orders")
     public void user_should_see_url_contains_orders() {
         BrowserUtils.verifyUrlContains("orders");
@@ -46,10 +46,8 @@ public class WebTable_StepDefinitions {
 
     @When("user enters username {string} password {string} and logins")
     public void userEntersUsernamePasswordAndLogins(String username, String password) {
-        webTableLoginPage.username.sendKeys(username);
-        webTableLoginPage.password.sendKeys(password);
-        webTableLoginPage.loginButton.click();
-    }
+        webTableLoginPage.login("Test", "Tester");
 //2.15.05
 
+    }
 }
