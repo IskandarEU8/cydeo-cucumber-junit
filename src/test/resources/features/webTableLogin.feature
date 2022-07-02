@@ -17,3 +17,10 @@ Feature: User should be able to login using correct credentials
     #1. - implement this new step
     #2. - create login method in WebTableLoginPage
     #3. - this login method should have multiple different overloaded version
+
+  Scenario: User should be able to see all 12 months in month dropdow
+    Given user is on the login page of web table app
+    When User enters below credentials
+      | username | Test   |
+      | password | Tester |
+    Then user should see url contains orders

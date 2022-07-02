@@ -69,7 +69,7 @@ public class BrowserUtils {
     This method accepts a String "expectedTitle" and Asserts if it is true;
      */
 
-    public static void verifyTitle( String expectedTitle) {
+    public static void verifyTitle(String expectedTitle) {
 
         Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle, "Title verification FAILED");
 
@@ -85,14 +85,21 @@ public class BrowserUtils {
 
     /**
      * This method verifies if the current URL contains expected value.
+     *
      * @param expectedTextInURL
      */
-    public static void verifyUrlContains(String expectedTextInURL){
+    public static void verifyUrlContains(String expectedTextInURL) {
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedTextInURL));
     }
 
-
-    public static List<String> dropdownOptionsAsString (WebElement dropdownElement){
+    /**
+     * This method will accept a dropdown as a WebElement
+     * and return all the 'options' text in a List of String
+     *
+     * @param dropdownElement
+     * @return List<String> actualOptionsAsString
+     */
+    public static List<String> dropdownOptionsAsString(WebElement dropdownElement) {
 
         Select select = new Select(dropdownElement);
 
@@ -107,8 +114,6 @@ public class BrowserUtils {
         }
 
 
-
+        return asctualOptionsAsString;
     }
-
-
 }
