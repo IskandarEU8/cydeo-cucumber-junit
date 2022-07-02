@@ -40,9 +40,16 @@ public class WebTable_StepDefinitions {
     }
     @Then("user should see url contains orders")
     public void user_should_see_url_contains_orders() {
-        BrowserUtils.verifyUrlContains("order");
+        BrowserUtils.verifyUrlContains("orders");
 
     }
 
+    @When("user enters username {string} password {string} and logins")
+    public void userEntersUsernamePasswordAndLogins(String username, String password) {
+        webTableLoginPage.username.sendKeys(username);
+        webTableLoginPage.password.sendKeys(password);
+        webTableLoginPage.loginButton.click();
+    }
+//2.15.05
 
 }
