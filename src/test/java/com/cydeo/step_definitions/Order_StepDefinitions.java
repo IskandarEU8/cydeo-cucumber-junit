@@ -42,14 +42,14 @@ public class Order_StepDefinitions {
     @And("user enters quantity {int}")
     public void userEntersQuantity(int arg0) {
 //        orderPage.inputQuantity.sendKeys(arg0+"");
-        BrowserUtils.sleep(1.2);
+
         //before entering value sometimes we have to get rid of default value. There are 2 ways for it:
         //way #1
         orderPage.inputQuantity.clear();
-        BrowserUtils.sleep(1.2);
+
         //way #2
         orderPage.inputQuantity.sendKeys("555");
-        BrowserUtils.sleep(1.2);
+
         orderPage.inputQuantity.sendKeys(Keys.BACK_SPACE);
         orderPage.inputQuantity.sendKeys(Keys.BACK_SPACE);
         orderPage.inputQuantity.sendKeys(Keys.BACK_SPACE);
@@ -123,3 +123,5 @@ public class Order_StepDefinitions {
 
 
 }
+
+//48.05
