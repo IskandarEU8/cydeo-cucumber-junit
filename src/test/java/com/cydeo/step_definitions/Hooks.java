@@ -20,6 +20,8 @@ public class Hooks {
         }
 
 
+        Driver.quitDriver(3.5);
+
     /*
     //import from io.cucumber.java not from junit
     @Before(order = 0)
