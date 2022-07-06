@@ -90,15 +90,22 @@ public class Order_StepDefinitions {
         orderPage.inputZip.sendKeys(string);
     }
 
+    /*
     @When("user selects credit card type {string}")
     public void user_selects_credit_card_type(String expectedCardType) {
         List<WebElement> cardType = orderPage.cardType;
         for (WebElement each : cardType) {
-            if (each.getAttribute("value").equals(expectedCardType)){
+            if (each.getAttribute("value").equalsIgnoreCase(expectedCardType)){
                 each.click();
             }
         }
     }
+*/
+    @When("user selects credit card type {string}")
+    public void user_selects_credit_card_type(String expectedCardType) {
+     BrowserUtils.clickRadioButton(orderPage.cardType, expectedCardType);
+    }
+
 
     @When("user enters credit card number {string}")
     public void user_enters_credit_card_number(String string) {
