@@ -44,4 +44,4 @@ Feature: Wiki search functionality and verifications
       | searchValue       | expectedTitle     | expectedMainHeader |
       | Steve Jobs        | Steve Jobs        | Steve Jobs         |
       | Cristiano Ronaldo | Cristiano Ronaldo | Cristiano Ronaldo  |
-      | Bob Marley        | Bob Marley        | Bob MarleyB         |
+      | Bob Marley        | Bob Marley        | Bob Marley         |

@@ -16,13 +16,18 @@ public class Driver {
         We make it static because we will use it in a static method.
          */
 
-    private static WebDriver driver;
+//    private static WebDriver driver;
+
+
+    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
+
+
 
     /*
     Create a re-usable utility method which will return same driver instance when we call it
      */
     public static WebDriver getDriver() {
-        if (driver == null) {
+        if (driverPool.get() == null) {
 
                 /*
                      We read our browserType from configurationType from configuration.properties
@@ -37,38 +42,39 @@ public class Driver {
             switch (browserType) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    driverPool.set( new ChromeDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    driverPool.set( new FirefoxDriver() );
+//                    driver = new FirefoxDriver();
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 case "safari":
                     WebDriverManager.safaridriver().setup();
-                    driver = new SafariDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    driverPool.set( new SafariDriver() );
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 case "edge":
                     WebDriverManager.edgedriver().setup();
-                    driver = new EdgeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    driverPool.set(new EdgeDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
             }
 
         }
-        return driver;
+        return driverPool.get();
     }
 
     public static void quitDriver() {
-        if (driver != null) {
-            driver.quit(); // this will terminate the existing session. Value will not even be null
-            driver = null;
+        if (driverPool.get() != null) {
+            driverPool.get().quit(); // this will terminate the existing session. Value will not even be null
+            driverPool.remove();
 
         }
     }
@@ -76,12 +82,11 @@ public class Driver {
 
     public static void quitDriver(int wait) {
         BrowserUtils.sleep(wait);
-        if (driver != null) {
-            driver.quit(); // this will terminate the existing session. Value will not even be null
-            driver = null;
+        if (driverPool.get() != null) {
+            driverPool.get().quit(); // this will terminate the existing session. Value will not even be null
+            driverPool.remove();
         }
     }
-
 /*
     public static void quitDriver(double wait) {
         try {
@@ -94,17 +99,17 @@ public class Driver {
         }
  */
 
-    public static void quitDriver(double wait) {
-        BrowserUtils.sleep(wait);
-        if (driver != null) {
-            driver.quit(); // this will terminate the existing session. Value will not even be null
-            driver = null;
+        public static void quitDriver ( double wait) {
+            BrowserUtils.sleep(wait);
+            if (driverPool.get() != null) {
+                driverPool.get().quit(); // this will terminate the existing session. Value will not even be null
+                driverPool.remove();
+            }
         }
-    }
-
 
     /*
     This method will make sure our drive value is always null after using quit()method
      */
 
-}
+        }
+
