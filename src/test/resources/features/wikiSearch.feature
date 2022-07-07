@@ -32,7 +32,7 @@ Feature: Wiki search functionality and verifications
       | Kate Winslet      | Kate Winslet      | Kate Winslet       |
 
 
-@wip @later2bDeleted
+ @later2bDeleted
   Scenario Outline: Wikipedia Search Functionality Header Verification
     Given User is on Wikipedia home page
     When User types "<searchValue>" in the wiki search box
@@ -44,4 +44,4 @@ Feature: Wiki search functionality and verifications
       | searchValue       | expectedTitle     | expectedMainHeader |
       | Steve Jobs        | Steve Jobs        | Steve Jobs         |
       | Cristiano Ronaldo | Cristiano Ronaldo | Cristiano Ronaldo  |
-      | Bob Marley        | Bob Marley        | Bob Marley         |
+      | Bob Marley        | Bob Marley        | Bob MarleyB         |
