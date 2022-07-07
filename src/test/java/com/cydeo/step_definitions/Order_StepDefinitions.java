@@ -2,6 +2,7 @@ package com.cydeo.step_definitions;
 
 import com.cydeo.pages.BasePage;
 import com.cydeo.pages.OrderPage;
+import com.cydeo.pages.ViewAllOrdersPage;
 import com.cydeo.pages.WebTableLoginPage;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
@@ -10,6 +11,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -21,6 +23,8 @@ public class Order_StepDefinitions {
     WebTableLoginPage webTableLoginPage = new WebTableLoginPage();
     BasePage basePage = new BasePage();
     OrderPage orderPage = new OrderPage();
+
+    ViewAllOrdersPage viewAllOrdersPage = new ViewAllOrdersPage();
 
 
     @Given("user is already logged in and on order page")
@@ -46,7 +50,7 @@ public class Order_StepDefinitions {
         //before entering value sometimes we have to get rid of default value. There are 2 ways for it:
         //way #1
         orderPage.inputQuantity.clear();
-
+/*
         //way #2
         orderPage.inputQuantity.sendKeys("555");
 
@@ -55,6 +59,8 @@ public class Order_StepDefinitions {
         orderPage.inputQuantity.sendKeys(Keys.BACK_SPACE);
         BrowserUtils.sleep(1.2);
         orderPage.inputQuantity.sendKeys(String.valueOf(arg0));
+
+ */
     }
 
 
@@ -112,8 +118,8 @@ public class Order_StepDefinitions {
         orderPage.cardNoInput.sendKeys(string);
     }
 
-    @When("user enters expury date {string}")
-    public void user_enters_expury_date(String string) {
+    @When("user enters expiry date {string}")
+    public void user_enters_expiry_date(String string) {
         orderPage.cardExpInput.sendKeys(string);
     }
 
@@ -124,7 +130,10 @@ public class Order_StepDefinitions {
 
     @Then("user should see {string} in first row of the web table")
     public void user_should_see_in_first_row_of_the_web_table(String string) {
+        viewAllOrdersPage.newCustomerCell.isDisplayed();
+        String actualName = viewAllOrdersPage.newCustomerCell.getText();
 
+        Assert.assertEquals(actualName, string);
     }
 
 

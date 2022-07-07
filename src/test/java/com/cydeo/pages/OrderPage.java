@@ -47,6 +47,10 @@ public class OrderPage extends BasePage{
     @FindBy(css = "button[type='submit']")
     public WebElement processOrderBtn;
 
+    @FindBy(xpath = "/html/body/div[1]/section/div/div[2]/div[2]/table/tbody/tr[1]/td[1]")
+    public WebElement elementTd;
+
+
 
 
 

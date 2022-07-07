@@ -11,16 +11,28 @@ public class Hooks {
 
 
     @After
-    public void teardownScenario(Scenario scenario) {
+    public void teardownScenario(Scenario scenario){
 
-        if (scenario.isFailed()) {
+        //scenario.isFailed() --> if scenario fails this method will return TRUE boolean value
 
-            byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+
+        if (scenario.isFailed()){
+
+            byte[] screenshot = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
+
+//            byte [] screenshot = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+//            scenario.attach(screenshot, "image/png", scenario.getName());
+
         }
 
 
-        Driver.quitDriver(3.5);
+        //BrowserUtils.sleep(5);
+        Driver.quitDriver(0.75);
+
+        //System.out.println("====Closing browser using cucumber @After");
+        //System.out.println("====Scenario ended/ Take screenshot if failed!");
+    }
 
     /*
     //import from io.cucumber.java not from junit
@@ -63,5 +75,5 @@ public class Hooks {
     }
 
      */
-    }
+
 }
