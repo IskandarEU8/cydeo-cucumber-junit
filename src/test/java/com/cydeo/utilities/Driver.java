@@ -18,7 +18,9 @@ public class Driver {
 
 //    private static WebDriver driver;
 
-
+    /**
+     * We need InheritableThreadLocal class because now we have to use different webdrivers for parallel testing
+     */
     private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
 
