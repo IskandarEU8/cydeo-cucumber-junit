@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         //tags = "@student or @librarian"
         //tags = "@employee and @admin"
         //tags = "@Regression"
-        tags = "@maleScientists"
+        tags = "@wip"
 )
 public class CukesRunner {
 }

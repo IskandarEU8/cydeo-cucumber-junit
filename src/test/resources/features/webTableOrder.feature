@@ -34,6 +34,7 @@ Feature: Web table user order feature
     And user enters process order button
     Then user should see "<expectedName>" in first row of the web table
 
+    @femaleScientist
     Examples: Famous female scientists
       | productType | quantity | customerName       | street     | city   | state   | zipCode | cardType | cardNumber    | expDate | expectedName       |
       | MoneyCog    | 2        | Marie Curie        | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | Marie Curie        |
@@ -42,12 +43,12 @@ Feature: Web table user order feature
       | MoneyCog    | 2        | Chien-Shiung Wu    | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | Chien-Shiung Wu    |
       | MoneyCog    | 2        | Barbara McClintock | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | Barbara McClintock |
 
-    @maleScientists
+    @maleScientists @wip
     Examples: Famous male scientists
-      | productType | quantity | customerName      | street     | city   | state   | zipCode | cardType | cardNumber    | expDate | expectedName      |
-      | MoneyCog    | 2        | Albert Einstein   | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | Alberta Canada    |
-      | Familybea   | 2        | C. V. Raman       | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | C. V. Raman       |
-      | Screenable  | 2        | Galileo Galilei   | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | Galileo Galilei   |
-      | MoneyCog    | 2        | Isaac Newton      | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | Isaac Newton      |
-      | MoneyCog    | 2        | Dmitriy Mendeleev | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | Dimitriy Mendeleev |
+      | productType | quantity | customerName      | street     | city   | state   | zipCode | cardType | cardNumber    | expDate | expectedName       |
+      | MoneyCog    | 2        | Albert Einstein   | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | Albert Einstein     |
+      | Familybea   | 2        | C. V. Raman       | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | C. V. Raman        |
+      | Screenable  | 2        | Galileo Galilei   | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | Galileo Galilei    |
+      | MoneyCog    | 2        | Isaac Newton      | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | Isaac Newton       |
+      | MoneyCog    | 2        | Dmitriy Mendeleev | London str | London | England | 50505   | Visa     | 1111222335456 | 12/24   | Dmitriy Mendeleev |
 
